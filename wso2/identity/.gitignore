@@ -1,0 +1,18 @@
+# identity
+.vagrant/
+iaas.conf
+Vagrantfile.extensions
+stratos_version.conf
+downloads
+m2_repo/
+jdk*.tar.gz
+wso2*.zip
+.DS_Store
+WSO2 Identity Manager 5.0.0 VBox
+WSO2-CARBON-PATCH-*
+wso2is-5.0.0
+WSO2-IS-5.0.0-SP01
+wso2is-5.0.0
+wso2is-5.0.0.tar.gz
+wso2is-5.0.0.zip
+wso2is-5.0.0-patched.zip

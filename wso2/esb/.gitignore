@@ -1,0 +1,9 @@
+.vagrant/
+iaas.conf
+Vagrantfile.extensions
+stratos_version.conf
+downloads
+m2_repo/
+jdk*.tar.gz
+wso2*.zip
+.DS_Store
