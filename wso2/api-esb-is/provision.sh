@@ -2,53 +2,28 @@
 
 # provision.sh
 
-echo provison.sh
+echo ${0}
 
 # Destination folder
 DEST=/home/vagrant
 
-# api manager
-am=wso2am
-amversion=$am-1.8.0
-amzip=$amversion.zip
-
-# esb 
-esb=wso2esb
-esbversion=$esb-4.8.1
-esbzip=$esbversion.zip
+startup=startup.sh
+shutdown=shutdown.sh
 
 echo .
-echo installing unzip 
-sudo apt-get install unzip
+echo Creating $startup script
+echo Use: sh ./$startup
+cp -f /vagrant/$startup $DEST/$startup
 
 echo .
-echo Copying wso2 api manager 1.8.0 compacted file ...
-cp -f /vagrant/$amzip $DEST
+echo chmod +x on $startup
+chmod a+x $DEST/$startup
 
 echo .
-echo Copying wso2 enterprise service bus 4.8.1 compacted file ...
-cp -f /vagrant/$esbzip $DEST
+echo Creating $shutdown script
+echo Use: sh ./$shutdown
+cp -f /vagrant/$shutdown $DEST/$shutdown
 
 echo .
-ls $DEST/*.zip
-
-echo .
-echo Unzipping $amzip
-cd $DEST
-unzip -o -q $amzip
-
-echo .
-echo moving $amversion folder to /opt
-rm -rf /opt/$amversion
-mv -f $amversion /opt
-ls -lahd /opt/$amversion
-
-echo .
-echo chown to vagrant
-chown -R vagrant:vagrant /opt/$amversion
-ls -lahd /opt/$amversion
-
-echo .
-echo sym-linking to $amversion
-ln -s /opt/$amversion $am
-ls -lah /opt/$am
+echo chmod +x on $shutdown
+chmod a+x $DEST/$shutdown

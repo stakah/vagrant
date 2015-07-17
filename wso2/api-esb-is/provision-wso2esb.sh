@@ -14,6 +14,8 @@ esbversion=$esb-$esbv
 esbzip=$esbversion.zip
 esbd="WSO2 Enterprise Service Bus $esbv"
 
+startup=startup-esb.sh
+
 # Carbon config
 CARBON_CONF=/opt/$esb/repository/conf/carbon.xml
 OFFSET="2"
@@ -58,3 +60,11 @@ echo .
 echo Changing $esbd Port offset to $OFFSET
 sed -i "s|\(<Offset>\)[^<>]*\(</Offset>\)|\1${OFFSET}\2|" $CARBON_CONF
 
+echo .
+echo Creating $startup script
+echo Use: sh ./$startup
+cp -f /vagrant/$startup $DEST/$startup
+
+echo .
+echo chmod +x on $startup
+chmod a+x $DEST/$startup

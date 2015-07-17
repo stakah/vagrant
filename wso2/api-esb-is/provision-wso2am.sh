@@ -14,6 +14,8 @@ amversion=$am-$amv
 amzip=$amversion.zip
 amd="WSO2 API Manager $amv"
 
+startup=startup-am.sh
+
 # Carbon config
 CARBON_CONF=/opt/$am/repository/conf/carbon.xml
 OFFSET="1"
@@ -58,3 +60,11 @@ echo .
 echo Changing $amd Port offset to $OFFSET
 sed -i "s|\(<Offset>\)[^<>]*\(</Offset>\)|\1${OFFSET}\2|" $CARBON_CONF
 
+echo .
+echo Creating $startup script
+echo Use: sh ./$startup
+cp -f /vagrant/$startup $DEST/$startup
+
+echo .
+echo chmod +x on $startup
+chmod a+x $DEST/$startup
