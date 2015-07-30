@@ -77,12 +77,10 @@ cat <<- EOF > $DEST/$ams
 	start)
 	  echo "$amd ..."
 	   su -c "\${startcmd}" vagrant
-	. $DEST/status.sh
 	;;
 	restart)
 	   echo "Re-starting $amd ..."
 	   su -c "\${restartcmd}" vagrant
-	. $DEST/status.sh
 	;;
 	stop)
 	   echo "Stopping $amd ..."
@@ -138,3 +136,6 @@ sudo update-rc.d $ams defaults
 
 echo starting $amd service
 sudo service $ams start
+
+sh $DEST/status.sh
+	
