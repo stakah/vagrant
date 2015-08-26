@@ -5,3 +5,5 @@ stratos_version.conf
 downloads
 m2_repo/
 .DS_Store
+*.tar.gz
+*.zip
