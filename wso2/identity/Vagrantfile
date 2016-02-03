@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "Puppetlabs Ubuntu 12.04.2 x86_64, VBox 4.2.10"
+  config.vm.box = "puppetlabs/ubuntu-14.04-64-puppet"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs

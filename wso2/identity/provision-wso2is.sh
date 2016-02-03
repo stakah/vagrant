@@ -20,6 +20,7 @@ OFFSET="0"
 
 echo .
 echo installing unzip 
+sudo apt-get update
 sudo apt-get install unzip
 
 echo .
