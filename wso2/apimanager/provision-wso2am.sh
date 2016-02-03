@@ -9,7 +9,7 @@ DEST=/home/vagrant
 
 # api manager
 am=wso2am
-amv=1.9.0
+amv=1.10.0
 amversion=$am-$amv
 amzip=$amversion.zip
 amd="WSO2 API Manager $amv"
@@ -26,6 +26,7 @@ echo sourcing $DEST/.profile
 echo JAVA_HOME=$JAVA_HOME
 
 echo installing unzip 
+sudo apt-get update
 sudo apt-get install unzip
 
 echo Copying $amd compacted file ...
