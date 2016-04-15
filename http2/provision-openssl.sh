@@ -46,9 +46,15 @@ echo .
 echo Uncompressing $OPENSSL_GZ
 tar -xf $OPENSSL_GZ
 
+echo .
+echo Installing dependencies for openssl
+sudo apt-get update
+sudo apt-get build-dep openssl -y
+
 # Building $OPENSSL_VERSION
 cd $OPENSSL_VERSION
 ./configure
+make depend
 make
 sudo make install
 

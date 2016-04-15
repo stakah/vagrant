@@ -108,31 +108,36 @@ cp ./ca.key /opt/$TOMCAT/conf/
 cp ./ca.crt /opt/$TOMCAT/conf/
 
 echo .
-echo Copying /vagrant/provision-apr.sh
-cp /vagrant/provision-apr.sh .
-chmod +x provision-apr.sh
+echo Copying setenv.sh
+cp /vagrant/setenv.sh /opt/$TOMCAT/bin/
+chmod +x /opt/$TOMCAT/bin/setenv.sh
 
-echo .
-echo Compiling APR
-sh provision-apr.sh
+#echo .
+#echo Copying /vagrant/provision-apr.sh
+#cp /vagrant/provision-apr.sh .
+#chmod +x provision-apr.sh
 
-echo .
-echo Copying /vagrant/provision-openssl.sh
-cp /vagrant/provision-openssl.sh .
-chmod +x provision-openssl.sh
+#echo .
+#echo Compiling APR
+#sh provision-apr.sh
 
-echo .
-echo Compiling openssl
-sh provision-openssl.sh
+#echo .
+#echo Copying /vagrant/provision-openssl.sh
+#cp /vagrant/provision-openssl.sh .
+#chmod +x provision-openssl.sh
 
-echo .
-echo Copying /vagrant/provision-tcn.sh
-cp /vagrant/provision-tcn.sh .
-chmod +x provision-tcn.sh
+#echo .
+#echo Compiling openssl
+#sh provision-openssl.sh
 
-echo .
-echo Compiling Tomcat Native Library
-sh provision-tcn.sh
+#echo .
+#echo Copying /vagrant/provision-tcn.sh
+#cp /vagrant/provision-tcn.sh .
+#chmod +x provision-tcn.sh
+
+#echo .
+#echo Compiling Tomcat Native Library
+#sh provision-tcn.sh
 
 #echo .
 #echo Changing $isd Port offset to $OFFSET

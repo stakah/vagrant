@@ -4,20 +4,27 @@
 
 echo ${0}
 
-#http://ftp.unicamp.br/pub/apache/tomcat/tomcat-connectors/native/1.2.5/source/tomcat-native-1.2.5-src.tar.gz
-#http://mirror.nbtelecom.com.br/apache/tomcat/tomcat-connectors/native/1.1.34/source/
+#http://ftp.unicamp.br/pub/apache/tomcat/tomcat-connectors/native/1.2.5/source/tomcat-native-1.2.5-src.tar.gz ### Está com bug
+#https://archive.apache.org/dist/tomcat/tomcat-connectors/native/1.2.2/source/tomcat-native-1.2.2-src.tar.gz
+#http://mirror.nbtelecom.com.br/apache/tomcat/tomcat-connectors/native/1.1.34/source/  ## Incompativel@
 
 TCN="tomcat-native"
 TCN_MAJOR_V="1"
-TCN_MINOR_V="1"
-TCN_REV="34"
+TCN_MINOR_V="2"
+TCN_REV="2"
 
 TCN_V=${TCN_MAJOR_V}.${TCN_MINOR_V}.${TCN_REV}
 TCN_VERSION=$TCN-$TCN_V
 TCN_SRC_FOLDER=$TCN_VERSION-src
 TCN_GZ=$TCN_VERSION-src.tar.gz
 TCN_DESCRIPTION="Apache Tomcat Native Library $TCN_V"
-TCN_DOWNLOAD_URL="http://ftp.unicamp.br/pub/apache/tomcat/tomcat-connectors/native/${TCN_V}/source/${TCN_GZ}"
+TCN_DOWNLOAD_URL="https://archive.apache.org/dist/tomcat/tomcat-connectors/native/${TCN_V}/source/${TCN_GZ}"
+
+# Home folder
+HOME=/home/vagrant
+
+echo sourcing $HOME/.profile
+. $HOME/.profile
 
 echo JAVA_HOME=$JAVA_HOME
 
@@ -58,7 +65,7 @@ tar -xf $TCN_GZ
 APR="/usr/local/apr/bin/apr-1-config"
 OPENSSL="/usr/include/openssl"
 #cd trunk/native
-cd $TCN_SRC_FOLDER/jni/native
+cd $TCN_SRC_FOLDER/native
 #autoconf configure.in > configure
 #chmod u+x configure
 #sh buildconf --with-apr=$APR_SRC
