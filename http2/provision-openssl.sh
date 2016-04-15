@@ -58,6 +58,11 @@ make depend
 make
 sudo make install
 
+sudo rm -f /usr/bin/openssl
+sudo rm -rf /usr/include/openssl/
+sudo cp /usr/local/ssl/bin/openssl /usr/bin/
+sudo cp -r /usr/local/ssl/include/openssl /usr/include/
+
 echo .
 echo Setting up OPENSSL_SRC for vagrant user
 echo "" >> /home/vagrant/.profile
