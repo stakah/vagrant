@@ -53,7 +53,7 @@ sudo apt-get build-dep openssl -y
 
 # Building $OPENSSL_VERSION
 cd $OPENSSL_VERSION
-./configure
+./config
 make depend
 make
 sudo make install
