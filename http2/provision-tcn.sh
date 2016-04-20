@@ -8,10 +8,19 @@ echo ${0}
 #https://archive.apache.org/dist/tomcat/tomcat-connectors/native/1.2.2/source/tomcat-native-1.2.2-src.tar.gz
 #http://mirror.nbtelecom.com.br/apache/tomcat/tomcat-connectors/native/1.1.34/source/  ## Incompativel@
 
+# archive.apache.org
+# versions:
+# ---------
+# - 1.2.5
+# - 1.2.4
+# - 1.2.3
+# - 1.2.2
+# - 1.2.0
+
 TCN="tomcat-native"
 TCN_MAJOR_V="1"
 TCN_MINOR_V="2"
-TCN_REV="2"
+TCN_REV="5"
 
 TCN_V=${TCN_MAJOR_V}.${TCN_MINOR_V}.${TCN_REV}
 TCN_VERSION=$TCN-$TCN_V
@@ -55,6 +64,10 @@ echo .
 echo Uncompressing $TCN_GZ
 tar -xf $TCN_GZ
 
+echo .
+echo Copying /usr/include/openssl/ to ~/include/openssl/include
+mkdir -p ~/include/openssl/include
+cp /usr/include/openssl/* ~/include/openssl/include
 #echo .
 #echo Checkin-out source from Subversion
 #mkdir $TCN_SRC_FOLDER
@@ -63,7 +76,8 @@ tar -xf $TCN_GZ
 
 # Building $TCN_VERSION
 APR="/usr/local/apr/bin/apr-1-config"
-OPENSSL="/usr/include/openssl"
+OPENSSL="$DEST/include/openssl"
+#OPENSSL="/usr/include/openssl"
 #cd trunk/native
 cd $TCN_SRC_FOLDER/native
 #autoconf configure.in > configure
