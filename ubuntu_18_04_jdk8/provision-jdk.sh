@@ -10,16 +10,17 @@ DEST=/home/vagrant
 # jdk
 jdk="jdk"
 jdkmainv="8"
-jdkupdatev="171"
+jdkupdatev="181"
 jdkv="${jdkmainv}u${jdkupdatev}"
-jdkrelease="${jdkv}"
-jdkhash="512cd62ec5174c3487ac17c61aaa89e8"
+jdkrelease="${jdkv}-b13"
+jdkhash="96a7b8442fe848ef90c96a2fad6ed6d1"
 jdkos="linux"
 jdkarc="x64"
 jdkversion="${jdk}-${jdkv}-${jdkos}-${jdkarc}"
 jdkzip="${jdkversion}.tar.gz"
 jdkfolder="jdk1.${jdkmainv}.0_${jdkupdatev}"
 
+# http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.tar.gz
 
 if [ -f /vagrant/$jdkzip ]; then 
     echo Copying $jdkversion
