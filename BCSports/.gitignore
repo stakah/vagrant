@@ -1,0 +1,8 @@
+*.box
+*.tar
+*.gz
+*.zip
+property_graph/
+*.jar
+authorized_keys
+s.sh
