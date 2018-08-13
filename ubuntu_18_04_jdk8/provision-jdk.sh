@@ -13,6 +13,7 @@ jdkmainv="8"
 jdkupdatev="171"
 jdkv="${jdkmainv}u${jdkupdatev}"
 jdkrelease="${jdkv}"
+jdkhash="512cd62ec5174c3487ac17c61aaa89e8"
 jdkos="linux"
 jdkarc="x64"
 jdkversion="${jdk}-${jdkv}-${jdkos}-${jdkarc}"
@@ -25,7 +26,7 @@ if [ -f /vagrant/$jdkzip ]; then
     cp -f /vagrant/$jdkzip $DEST
 else
 	echo Downloading $jdkzip
-    wget --quiet --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie"  http://download.oracle.com/otn-pub/java/jdk/$jdkrelease/$jdkzip
+    wget --quiet --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie"  http://download.oracle.com/otn-pub/java/jdk/$jdkrelease/$jdkhash/$jdkzip
     cp $jdkzip /vagrant
 fi
 

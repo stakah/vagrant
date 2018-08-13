@@ -5,3 +5,14 @@ stratos_version.conf
 downloads
 m2_repo/
 .DS_Store
+*.tar.gz
+*.zip
+http2/
+*.box
+*.tar
+puppet-wso2/
+temp/
+*.bkp
+*.bakp
+wso2is-5.1.0/
+
