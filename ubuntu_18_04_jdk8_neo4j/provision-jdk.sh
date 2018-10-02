@@ -45,7 +45,7 @@ rm -f $jdkzip
 echo Setting up JAVA_HOME for vagrant user
 echo "" >> /home/vagrant/.profile
 echo export JAVA_HOME=/usr/java/$jdkfolder >> /home/vagrant/.profile
-echo PATH=$PATH:\$JAVA_HOME/bin >> /home/vagrant/.profile
+echo PATH=\$PATH:\$JAVA_HOME/bin >> /home/vagrant/.profile
 
 echo exporting JAVA_HOME
 export JAVA_HOME=/usr/java/$jdkfolder
