@@ -22,17 +22,27 @@ ip6_host=$(/sbin/ip -o -6 addr list eth1 | awk '{print $4}' | cut -d/ -f1)
 ip4_pub=$(/sbin/ip -o -4 addr list eth2 | awk '{print $4}' | cut -d/ -f1)
 ip6_pub=$(/sbin/ip -o -6 addr list eth2 | awk '{print $4}' | cut -d/ -f1)
 
+printf -v ip4_priv '%-15s' "$ip4_priv"
+printf -v ip6_priv '%-24s' "$ip6_priv"
+
+printf -v ip4_host '%-15s' "$ip4_host"
+printf -v ip6_host '%-24s' "$ip6_host"
+
+printf -v ip4_pub '%-15s' "$ip4_pub"
+printf -v ip6_pub '%-24s' "$ip6_pub"
+
 (
 cat << EOF
 
 hostname: $HOSTNAME
 
----------------------------------------------------------------------
-| --------- | IP v4          | IP v6                                |
+----------------------------------------------------------
+| --------- | IP v4           | IP v6                    |
+| PRIVATE   | 10.0.2.15       | fe80::a00:27ff:fef0:4cba |
 | PRIVATE   | $ip4_priv | $ip6_priv |
 | HOST ONLY | $ip4_host | $ip6_host |
 | PUBLIC    | $ip4_pub | $ip6_pub |
----------------------------------------------------------------------
+----------------------------------------------------------
 
 EOF
 ) >> $FILE

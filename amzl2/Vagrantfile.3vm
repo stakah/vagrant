@@ -8,14 +8,10 @@ FRONTEND_NODE_IP = "#{BASE_LOCAL_IP}.103"
 
 machines = [
   {
-    "vm_name" => "#{VM_BASE_NAME}", "memory" => 2048, "cpus" => 1, "hostname" => "#{VM_BASE_NAME}",
+    "vm_name" => "#{VM_BASE_NAME}-mysqldb", "memory" => 1024, "cpus" => 1, "hostname" => "#{VM_BASE_NAME}-mysqldb",
     "ip_address" => "#{BASE_LOCAL_IP}.101",
     "forwarded_ports" => [
-      {"guest" => 3306, "host" => 3306},
-      {"guest"=> 8000, "host" => 8000},
-      {"guest"=> 8100, "host" => 8100},
-      {"guest"=> 3000, "host" => 3000},
-      {"guest"=> 3001, "host" => 3001}
+      {"guest" => 3306, "host" => 3306}
     ],
     "provisions" => [
       {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set mysql-server", "path" => "provisioning/setup-mysql.sh", "privileged" => true},
@@ -23,48 +19,37 @@ machines = [
       {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "create mysql-db", "path" => "amzl2/create-mysql-db.sh", "privileged" => true},
       {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "create mysql-user", "path" => "amzl2/create-mysql-user.sh", "privileged" => true},
       {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set git", "path" => "provisioning/setup-git.sh", "privileged" => true},
-
-      # {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set mysql-client", "path" => "provisioning/setup-mysql-client.sh", "privileged" => true},
+    ]
+  },
+  {
+    "vm_name" => "#{VM_BASE_NAME}-backend", "memory" => 1024, "cpus" => 1, "hostname" => "#{VM_BASE_NAME}-backend",
+    "ip_address" => "#{BASE_LOCAL_IP}.102",
+    "forwarded_ports" => [
+      {"guest"=> 8000, "host" => 8000}
+    ],
+    "provisions" => [
+      {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set mysql-client", "path" => "provisioning/setup-mysql-client.sh", "privileged" => true},
       {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set python3 and virtualenv", "path" => "provisioning/setup-python3.sh", "privileged" => false},
       {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set nginx", "path" => "provisioning/setup-nginx.sh", "privileged" => true},
-      # {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set git", "path" => "provisioning/setup-git.sh", "privileged" => true},
+      {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set git", "path" => "provisioning/setup-git.sh", "privileged" => true},
       {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set uwsgi", "path" => "provisioning/setup-uwsgi.sh", "privileged" => false},
-
-      # {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set git", "path" => "provisioning/setup-git.sh", "privileged" => true},
+    ]
+  },
+  {
+    "vm_name" => "#{VM_BASE_NAME}-frontend", "memory" => 1024, "cpus" => 1, "hostname" => "#{VM_BASE_NAME}-frontend",
+    "ip_address" =>  "#{BASE_LOCAL_IP}.103",
+    "forwarded_ports" => [
+      {"guest"=> 8100, "host" => 8100},
+      {"guest"=> 3000, "host" => 3000},
+      {"guest"=> 3001, "host" => 3001}
+    ],
+    "provisions" => [
+      {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set git", "path" => "provisioning/setup-git.sh", "privileged" => true},
       {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set nodejs", "path" => "provisioning/setup-nodejs.sh", "privileged" => false},
       {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set ionic", "path" => "provisioning/setup-ionic.sh", "privileged" => true},
       {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set angular", "path" => "provisioning/setup-angular.sh", "privileged" => false},
     ]
-  },
-  # {
-  #   "vm_name" => "#{VM_BASE_NAME}-backend", "memory" => 1024, "cpus" => 1, "hostname" => "#{VM_BASE_NAME}-backend",
-  #   "ip_address" => "#{BASE_LOCAL_IP}.102",
-  #   "forwarded_ports" => [
-  #     {"guest"=> 8000, "host" => 8000}
-  #   ],
-  #   "provisions" => [
-  #     {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set mysql-client", "path" => "provisioning/setup-mysql-client.sh", "privileged" => true},
-  #     {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set python3 and virtualenv", "path" => "provisioning/setup-python3.sh", "privileged" => false},
-  #     {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set nginx", "path" => "provisioning/setup-nginx.sh", "privileged" => true},
-  #     {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set git", "path" => "provisioning/setup-git.sh", "privileged" => true},
-  #     {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set uwsgi", "path" => "provisioning/setup-uwsgi.sh", "privileged" => false},
-  #   ]
-  # },
-  # {
-  #   "vm_name" => "#{VM_BASE_NAME}-frontend", "memory" => 1024, "cpus" => 1, "hostname" => "#{VM_BASE_NAME}-frontend",
-  #   "ip_address" =>  "#{BASE_LOCAL_IP}.103",
-  #   "forwarded_ports" => [
-  #     {"guest"=> 8100, "host" => 8100},
-  #     {"guest"=> 3000, "host" => 3000},
-  #     {"guest"=> 3001, "host" => 3001}
-  #   ],
-  #   "provisions" => [
-  #     {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set git", "path" => "provisioning/setup-git.sh", "privileged" => true},
-  #     {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set nodejs", "path" => "provisioning/setup-nodejs.sh", "privileged" => false},
-  #     {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set ionic", "path" => "provisioning/setup-ionic.sh", "privileged" => true},
-  #     {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set angular", "path" => "provisioning/setup-angular.sh", "privileged" => false},
-  #   ]
-  # }
+  }
 ]
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -86,7 +71,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       }
 
       vmaquina.vm.hostname = machine["hostname"]
-      vmaquina.vm.network "public_network"
+      # vmaquina.vm.network "public_network"
 
       vmaquina.vm.provider "virtualbox" do |vb|
         vb.name = machine["vm_name"]

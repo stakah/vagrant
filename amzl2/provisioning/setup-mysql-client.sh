@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Intalling MySQL Server"
+echo "Intalling MySQL Client"
 
 sudo yum update -y
 
@@ -51,5 +51,6 @@ sudo yum localinstall -y mysql-community-common-8.0.16-2.el7.x86_64.rpm \
                          mysql-community-server-8.0.16-2.el7.x86_64.rpm \
                          mysql-community-test-8.0.16-2.el7.x86_64.rpm
 
-sudo yum install mysql-community-libs mysql-community-server
-systemctl start mysqld.service
+sudo yum install -y mysql-community-libs mysql-community-client mysql-community-devel
+
+# systemctl start mysqld.service

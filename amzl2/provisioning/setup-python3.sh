@@ -23,7 +23,8 @@ echo "Verifying installed pip version"
 pip --version
 
 echo "Installing python-devel"
-sudo yum install python-devel -y
+# sudo yum install python-devel -y
+sudo yum install python3-devel -y
 
 echo "Installing virtualenv"
 pip install --user virtualenv
