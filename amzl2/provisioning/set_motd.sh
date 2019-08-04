@@ -38,7 +38,6 @@ hostname: $HOSTNAME
 
 ----------------------------------------------------------
 | --------- | IP v4           | IP v6                    |
-| PRIVATE   | 10.0.2.15       | fe80::a00:27ff:fef0:4cba |
 | PRIVATE   | $ip4_priv | $ip6_priv |
 | HOST ONLY | $ip4_host | $ip6_host |
 | PUBLIC    | $ip4_pub | $ip6_pub |
