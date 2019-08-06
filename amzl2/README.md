@@ -38,6 +38,28 @@ C:\work>cd vagrant\amzl2
 > ~/work>cd vagrant/amzl2
 > ```
 
+> **Atenção!**
+>
+> O ideal é que a máquina hospedeira tenha, pelo menos, **8GB**
+> de memória RAM pois, a máquina virtual está configurada para
+> utilizar até **4GB** de memória RAM.
+>
+> Caso a máquina hospedeira tenha menos do que **8GB**
+> de memória RAM, é recomendável mudar a configuração da máquina
+> virtual, reduzindo a memória utilizada para, no mínimo, **2GB**,
+> ou, seguir as instruções para instalar o MySQL e o Python
+> na máquina hospedeira.
+>
+> Para alterar a configuração de memória da máquina virtual, edite
+> o arquivo `Vagrantfile` e altere a linha:
+
+    "vm_name" => "#{VM_BASE_NAME}", "memory" => 4096, "cpus" => 1, "hostname" => "#{VM_BASE_NAME}",
+
+para
+
+    "vm_name" => "#{VM_BASE_NAME}", "memory" => 2048, "cpus" => 1, "hostname" => "#{VM_BASE_NAME}",
+
+
 ## Para criar o ambiente em uma única VM
 Pelo terminal, na pasta `work/vagrant/amzl2` faça:
 ```
