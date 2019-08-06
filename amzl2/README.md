@@ -70,7 +70,13 @@ Será criada uma VM identificada por `amzolx2` com o endereço IP
 
 Pelo terminal, na pasta `work/vagrant/amzl2` faça:
 
-    ...work/vagrant/amzl2>vagrant up Vagrantfile.3vm
+#### Para Windows
+
+    ...work/vagrant/amzl2>cmd /C "set VAGRANT_VAGRANTFILE=Vagrant.3vm&& vagrant up"
+
+#### Para Mac OS X  ou Linux
+
+    ...work/vagrant/amzl2>VAGRANT_VAGRANTFILE=Vagrantfile.3vm vagrant up
 
 Serão criadas três VMs, a saber:
 
