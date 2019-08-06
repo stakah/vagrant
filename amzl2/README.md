@@ -27,17 +27,15 @@ no endereço: https://github.com/stakah/vagrant/archive/master.zip
 Após baixar e descompactar o arquivo ZIP, por exemplo, na pasta
 `C:\work`, faça um `cd` para entrar na pasta `vagrant\amzl2`
 
-```shell
-C:\work>cd vagrant\amzl2
-```
+    C:\work>cd vagrant\amzl2
 
-> **Para Linux/Mac OS X**
-> Por exemplo, descompacte o arquivo na sua pasta home `~/work` e 
-> faça um `cd` para entrar na pasta `vagrant/amzl2`
-> ```shell
-> ~/work>cd vagrant/amzl2
-> ```
+### Para Linux/Mac OS X
 
+ Por exemplo, descompacte o arquivo na sua pasta home `~/work` e 
+ faça um `cd` para entrar na pasta `vagrant/amzl2`
+ 
+     ~/work>cd vagrant/amzl2
+ 
 > **Atenção!**
 >
 > O ideal é que a máquina hospedeira tenha, pelo menos, **8GB**
@@ -62,18 +60,17 @@ para
 
 ## Para criar o ambiente em uma única VM
 Pelo terminal, na pasta `work/vagrant/amzl2` faça:
-```
-...work/vagrant/amzl2>vagrant up
-```
+
+    ...work/vagrant/amzl2>vagrant up
+
 Será criada uma VM identificada por `amzolx2` com o endereço IP
 `192.168.33.101`.
 
 ### Para criar o ambiente em três VMs separadas
 
 Pelo terminal, na pasta `work/vagrant/amzl2` faça:
-```shell
-...work/vagrant/amzl2>vagrant up Vagrantfile.3vm
-```
+
+    ...work/vagrant/amzl2>vagrant up Vagrantfile.3vm
 
 Serão criadas três VMs, a saber:
 
@@ -89,22 +86,18 @@ Serão criadas três VMs, a saber:
 Na pasta raíz onde está o arquivo `Vagrantfile` criar uma pasta com o conteúdo do
 repositório com os códigos do backend e frontend.
 
-```shell
-...work/vagrant/amzl2> mkdir myproj
-...work/vagrant/amzl2> cd myproj
-```
+    ...work/vagrant/amzl2> mkdir myproj
+    ...work/vagrant/amzl2> cd myproj
 
 ## Para se conectar
 
 Utilizar:
 
-```
-/> ssh vagrant@192.168.33.101
+    /> ssh vagrant@192.168.33.101
 
 ou,
 
-...work/vagrant/amzl2>vagrant ssh amzolx2
-```
+    ...work/vagrant/amzl2>vagrant ssh amzolx2
 
 A senha do usuário `vagrant` é `vagrant`.
 
@@ -112,11 +105,10 @@ A senha do usuário `vagrant` é `vagrant`.
 > Para instalar as dependências do projeto Ionic com uma maquina hospedeira Windows,
 > utilizar `yarn` de dentro da maquina `amzolx2-frontend`
 > 
-> ```
-> npm rebuild node-sass
-> npm install -g yarn
-> cd /vagrant/dir/to/ionic/frontend/project
-> rm -rf node_modules
-> yarn install --no-bin-links
-> ```
-> 
+
+    npm rebuild node-sass
+    npm install -g yarn
+    cd /vagrant/dir/to/ionic/frontend/project
+    rm -rf node_modules
+    yarn install --no-bin-links
+ 
