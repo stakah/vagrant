@@ -13,9 +13,9 @@ machines = [
     "forwarded_ports" => [
       {"guest" => 3306, "host" => 3306},
       {"guest"=> 8000, "host" => 8000},
-      {"guest"=> 8100, "host" => 8100},
-      {"guest"=> 3000, "host" => 3000},
-      {"guest"=> 3001, "host" => 3001}
+      # {"guest"=> 8100, "host" => 8100},
+      # {"guest"=> 3000, "host" => 3000},
+      # {"guest"=> 3001, "host" => 3001}
     ],
     "provisions" => [
       {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set mysql-server", "path" => "provisioning/setup-mysql.sh", "privileged" => true},
@@ -31,9 +31,9 @@ machines = [
       {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set uwsgi", "path" => "provisioning/setup-uwsgi.sh", "privileged" => false},
 
       # {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set git", "path" => "provisioning/setup-git.sh", "privileged" => true},
-      {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set nodejs", "path" => "provisioning/setup-nodejs.sh", "privileged" => false},
-      {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set ionic", "path" => "provisioning/setup-ionic.sh", "privileged" => true},
-      {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set angular", "path" => "provisioning/setup-angular.sh", "privileged" => false},
+      # {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set nodejs", "path" => "provisioning/setup-nodejs.sh", "privileged" => false},
+      # {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set ionic", "path" => "provisioning/setup-ionic.sh", "privileged" => true},
+      # {"type" => "shell", "keep_color" => true, "run" => "once", "name" => "set angular", "path" => "provisioning/setup-angular.sh", "privileged" => false},
     ]
   },
   # {

@@ -50,12 +50,3 @@ which python
 echo "Installing AWS boto3"
 pip install boto3
 
-# echo "Adding virtual env activate to .bashrc"
-# if [ ! -f "~/.bashrc.bk" ]; then
-#     echo "Creating file ~/.bashrc.bk"
-#     cp ~/.bashrc ~/.bashrc.bk
-# fi
-
-# cp -f ~/.bashrc.bk ~/.bashrc
-
-# echo "source /home/vagrant/venv/python3/bin/activate" >> ~/.bashrc
