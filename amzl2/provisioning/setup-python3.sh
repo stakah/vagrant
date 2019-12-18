@@ -44,6 +44,14 @@ virtualenv -p /usr/bin/python3 python3
 echo "Activating the virtual environment"
 source /home/vagrant/venv/python3/bin/activate
 
+echo "Adding virtualenv activate to ~/.bashrc"
+if [ ! -f "/home/vagrant/.bashrc.bak" ]; then
+    sudo cp /home/vagrant/.bashrc /home/vagrant/.bashrc.bak
+else
+    sudo cp -f /home/vagrant/.bashrc.bak /home/vagrant/.bashrc
+fi
+echo "source /home/vagrant/venv/python3/bin/activate" >> /home/vagrant/.bashrc
+
 echo "Confirming that python3 is being execute inside virtual environment"
 which python
 
