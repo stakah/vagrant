@@ -4,6 +4,7 @@ sudo yum groupinstall "Development Tools"
 sudo yum update -y  
 sudo yum install python3 -y
 sudo yum install python-devel -y
+sudo yum groupinstall "Development Tools" -y
 
 # source ~/venv/python3/bin/activate
 

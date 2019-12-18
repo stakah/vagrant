@@ -69,7 +69,7 @@ machines = [
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "bento/amazonlinux-2"
-  config.vm.box_version = "1.0.0"
+  config.vm.box_version = "1.1.0"
   
   config.vm.provision "shell", run: "once", name: "set motd", path: "provisioning/set_motd.sh"
   config.vm.provision "shell", run: "once", name: "set amazon-linux-extras", path: "provisioning/setup-amazon-linux-extras.sh"
